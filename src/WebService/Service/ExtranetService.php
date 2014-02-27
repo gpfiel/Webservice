@@ -4,7 +4,7 @@ namespace WebService\Service;
 use Doctrine\ORM\EntityManager;
 
 class ExtranetService
-{    
+{
 
     protected $em;
 
@@ -33,11 +33,11 @@ class ExtranetService
             return false;
         }
     }
-    
+
     /**
      * @return string
      */
-    public function post(String $nome) {
+    public function post($nome) {
         return "Ola $nome, Seja bem vindo ao WebServer";
-    }    
+    }
 }
