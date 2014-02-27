@@ -1,24 +1,21 @@
 <?php
 namespace WebService\Service;
 
-use Doctrine\ORM\EntityManager;
+use Doctrine\Common\Persistence\ObjectManager;
 
 class ExtranetService
 {
+    /**
+     * @var ObjectManager
+     */
+    protected $objectManager;
 
-    protected $em;
-
-    public function setEntityManager(EntityManager $em)
+    /**
+     * @param ObjectManager $objectManager
+     */
+    public function __construct(ObjectManager $objectManager)
     {
-        $this->em = $em;
-    }
-
-
-    public function getEntityManager()
-    {
-        if ($this->em === null) {
-            $this->em = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
-        }
+        $this->objectManager = $objectManager;
     }
 
     /**
@@ -27,7 +24,8 @@ class ExtranetService
     public function ping()
     {
         try {
-            $this->getEntityManager()->getConnection()->connect();
+            $this->objectManager->getConnection()->connect();
+
             return true;
         } catch (\Exception $e) {
             return false;
