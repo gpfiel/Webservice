@@ -6,6 +6,11 @@ return array(
             'WebService\Controller\Servico' => 'WebService\Controller\ServicoController',
         ),
     ),
+    'services' => array(
+        'factories' => array(
+            'WebService\Service\ExtranetService' => 'WebService\Factory\ExtranetServiceFactory',
+        ),
+    ),
     'router' => array(
         'routes' => array(
             'servico' => array(
