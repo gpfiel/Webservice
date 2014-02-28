@@ -6,7 +6,7 @@ return array(
             'WebService\Controller\Servico' => 'WebService\Controller\ServicoController',
         ),
     ),
-    'services' => array(
+    'service_manager' => array(
         'factories' => array(
             'WebService\Service\ExtranetService' => 'WebService\Factory\ExtranetServiceFactory',
         ),
